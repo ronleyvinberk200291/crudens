@@ -9,24 +9,22 @@
 	<% } %>
     <div class="row">
         <div class="col-sm-6 col-md-6 col-md-offset-3">
-            <% items.data.forEach(function(item){ %>
-                <form action="/items/update" method="post">
-                    <input type="hidden" class="form-control" name="id" value="<%= item.id %>" />
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" name="name" value="<%= item.name %>" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label>Amount</label>
-                        <input type="number" class="form-control" name="amount" value="<%= item.amount %>" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <a href="/items" class="btn btn-md btn-default" role="button">Back to previous page</a>
-                        <button type="submit" class="btn btn-md btn-primary">Submit</button>
-                    </div>
-                </form>
-                <%- include('../parts/footer') %>
-            <% }) %>
+            <form action="/items/update" method="post">
+                <input type="hidden" class="form-control" name="id" value="<%= items.data_json.id %>" />
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="name" value="<%= items.data_json.name %>" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="number" class="form-control" name="amount" value="<%= items.data_json.amount %>" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <a href="/items" class="btn btn-md btn-default" role="button">Back to previous page</a>
+                    <button type="submit" class="btn btn-md btn-primary">Submit</button>
+                </div>
+            </form>
+            <%- include('../parts/footer') %>
         </div>
     </div>
 </body>

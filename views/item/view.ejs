@@ -12,41 +12,39 @@
             <% if (messages.error) { %>
                 <div class="alert alert-danger" role="alert"><%- messages.error %></div>
             <% } %>
-            <% items.data.forEach(function(item){ %>
-                <a href="/items" class="btn btn-sm btn-default" role="button">Back to previous page</a>
-                <a href="/items/add" class="btn btn-sm btn-primary" role="button">Create</a>
-                <a href="/items/edit/<%- item.id %>" class="btn btn-sm btn-info" role="button">Edit</a>
-                <form action="/items/delete" method="post" style="display: inline-block;">
-                    <input type="hidden" name="id" class="form-control" value="<%- item.id %>" />
-                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete this data?')">Delete</button>
-                </form>
-                <br /><br />
-                <table class="table table-striped">
-                    <tr>
-                        <td style="width: 25%;">Book Name</td>
-                        <td style="width: 1%;">:</td>
-                        <td><%- item.name %></td>
-                    </tr>
-                    <tr>
-                        <td>Amount</td>
-                        <td>:</td>
-                        <td><%- item.amount %></td>
-                    </tr>
-                </table>
-                <table class="table table-striped">
-                    <tr>
-                        <td style="width: 25%;">Created At</td>
-                        <td style="width: 1%;">:</td>
-                        <td><%- item.createdAt %></td>
-                    </tr>
-                    <tr>
-                        <td>Updated At</td>
-                        <td>:</td>
-                        <td><%- item.updatedAt %></td>
-                    </tr>
-                </table>
-                <%- include('../parts/footer') %>
-            <% }) %>
+            <a href="/items" class="btn btn-sm btn-default" role="button">Back to previous page</a>
+            <a href="/items/create" class="btn btn-sm btn-primary" role="button">Create</a>
+            <a href="/items/edit/<%- items.data_json.id %>" class="btn btn-sm btn-info" role="button">Edit</a>
+            <form action="/items/delete" method="post" style="display: inline-block;">
+                <input type="hidden" name="id" class="form-control" value="<%- items.data_json.id %>" />
+                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete this data?')">Delete</button>
+            </form>
+            <br /><br />
+            <table class="table table-striped">
+                <tr>
+                    <td style="width: 25%;">Book Name</td>
+                    <td style="width: 1%;">:</td>
+                    <td><%- items.data_json.name %></td>
+                </tr>
+                <tr>
+                    <td>Amount</td>
+                    <td>:</td>
+                    <td><%- items.data_json.amount %></td>
+                </tr>
+            </table>
+            <table class="table table-striped">
+                <tr>
+                    <td style="width: 25%;">Created At</td>
+                    <td style="width: 1%;">:</td>
+                    <td><%- items.data_json.createdAt %></td>
+                </tr>
+                <tr>
+                    <td>Updated At</td>
+                    <td>:</td>
+                    <td><%- items.data_json.updatedAt %></td>
+                </tr>
+            </table>
+            <%- include('../parts/footer') %>
         </div>
     </div>
 </body>
